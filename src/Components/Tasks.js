@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function Tasks({ todo, handleClick }) {
-  console.log(todo);
   return (
     <div>
       {/* <p>{task}</p> */}
