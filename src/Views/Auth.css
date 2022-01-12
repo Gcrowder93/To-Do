@@ -1,0 +1,16 @@
+/* .links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+h1 {
+  margin: 10px;
+  cursor: pointer;
+}
+
+h1.active {
+  color: purple;
+  text-decoration: underline;
+  border-bottom: 2px solid black;
+}
