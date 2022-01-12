@@ -29,7 +29,7 @@ export default function AuthForm({
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <input type="submit" />
+      <input className="submit" type="submit" />
     </form>
   );
 }

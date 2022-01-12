@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './ToDoList.css';
 export default function ToDoList({ task, setTask, handleSubmit }) {
   return (
     <div className="todo-list">
@@ -17,8 +17,13 @@ export default function ToDoList({ task, setTask, handleSubmit }) {
           />
         </div>
         <div className="action">
-          <button className="save-task" onClick={handleSubmit}>
+          <button className="save" onClick={handleSubmit}>
             Save
+          </button>
+          <br></br>
+          <br></br>
+          <button className="delete" onClick={handleSubmit}>
+            Delete
           </button>
         </div>
       </form>

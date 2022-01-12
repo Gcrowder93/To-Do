@@ -1,16 +1,19 @@
 import React from 'react';
 
-export default function Tasks({ task }) {
+export default function Tasks({ todo, handleClick }) {
+  console.log(todo);
   return (
     <div>
-      <p>{task}</p>
-      <input type="radio" value={task} />
+      {/* <p>{task}</p> */}
+      <br></br>
+      {todo.task}
+      <br></br>
+      <input
+        checked={todo.id.is_complete}
+        type="checkbox"
+        onChange={() => handleClick(todo)}
+        value={todo}
+      />
     </div>
   );
 }
-
-// import React from 'react';
-
-// export default function Tasks({ tasks }) {
-//   return <div>{<p>{tasks}</p>}</div>;
-// }
