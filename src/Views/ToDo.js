@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { createToDo, fetchToDos } from '../services/todos';
+import React, { useState } from 'react';
+import { createToDo } from '../services/todos';
 import ToDoList from '../Components/ToDoList';
+// import { useEffect } from 'react';
+// import { fetchToDos } from '../services/todos';
 
 export default function ToDo() {
   const [task, setTask] = useState('');
@@ -11,17 +13,22 @@ export default function ToDo() {
       await createToDo(task);
       alert('You have added a new task');
     } catch {
-      alert('didnt work');
+      alert('Please enter a task');
     }
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const taskData = await fetchToDos();
-      setTask(taskData);
-    };
-    fetchData();
-  }, []);
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       const taskData = await fetchToDos();
+  //       setTask(taskData);
+  //       console.log(taskData);
+  //     };
+  //     fetchData();
+  //   }, []);
+
+  // COMMENT BACK IN 'USEEFFECT' AND 'FETCHTODOS'
+  // COMMENTING THIS BACK BRINGS IN "OBJECT OBJECT" INTO THE TEXT FIELD, BUT ALSO SHOWS ALL THE TASKS IN CONSOLE
+  // MAP THROUGH CURRENTTASK, ASSIGN RADIO BUTTON
 
   return (
     <div>
