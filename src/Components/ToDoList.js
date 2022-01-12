@@ -3,14 +3,13 @@ import React from 'react';
 export default function ToDoList({ task, setTask, handleSubmit }) {
   return (
     <div className="todo-list">
-      <form>
+      <form className="form">
         <h3>Add Task</h3>
         <div className="form-control">
           <label>Task: </label>
           <input
-            className="control"
-            placeholder="..."
             type="text"
+            placeholder="..."
             value={task}
             onChange={(e) => {
               setTask(e.target.value);

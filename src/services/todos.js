@@ -1,6 +1,6 @@
 import { client, checkError } from '../services/client';
 
-export async function fetchToDo() {
+export async function fetchToDos() {
   const resp = await client.from('todos').select('*');
   return checkError(resp);
 }

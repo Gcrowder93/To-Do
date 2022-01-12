@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createToDo, fetchToDos } from '../services/todos';
+import ToDoList from '../Components/ToDoList';
 
-export default function ToDoList() {
+export default function ToDo() {
   const [task, setTask] = useState('');
 
   const handleSubmit = async (e) => {
