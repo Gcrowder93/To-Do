@@ -39,6 +39,7 @@ export default function ToDoAdmin() {
   return (
     <>
       <div>
+        <h1>Check A Box Once You Complete A Task!</h1>
         <ul>
           {currentTasks.map((todo) => (
             <div key={todo.id}>

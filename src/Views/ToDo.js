@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { fetchToDos } from '../services/todos';
 
 export default function ToDo() {
-  const [task, setTask] = useState([]);
+  const [, setTask] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
