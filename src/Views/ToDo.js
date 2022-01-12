@@ -12,7 +12,6 @@ export default function ToDo() {
     const fetchData = async () => {
       const data = await fetchToDos();
       setTask(data);
-      console.log(data);
     };
     fetchData();
   }, []);
