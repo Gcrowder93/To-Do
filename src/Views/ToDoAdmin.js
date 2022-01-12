@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Tasks from '../Components/Tasks';
 import ToDoList from '../Components/ToDoList';
-import { createToDo } from '../services/todos';
+import { createToDo, fetchToDos, toggleCompleted } from '../services/todos';
 
 export default function ToDoAdmin() {
   const [task, setTask] = useState('');
+  const [currentTasks, setCurrentTask] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchToDos();
+      setCurrentTask(data);
+    };
+    fetchData();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await createToDo(task);
-      alert('yay');
+      alert('~ You have added a task ~');
     } catch {
       alert('error');
     }
@@ -17,9 +27,29 @@ export default function ToDoAdmin() {
     window.location.reload();
   };
 
+  const handleClick = async (todo) => {
+    await toggleCompleted(todo.id, !todo.is_complete);
+    setCurrentTask((prevState) =>
+      prevState.map((todo) =>
+        todo.id === todo.id ? { ...todo, is_complete: !todo.is_complete } : todo
+      )
+    );
+  };
+
   return (
-    <div>
-      <ToDoList task={task} setTask={setTask} handleSubmit={handleSubmit} />
-    </div>
+    <>
+      <div>
+        <ul>
+          {currentTasks.map((todo) => (
+            <div key={todo.id}>
+              <Tasks todo={todo} handleClick={handleClick} />
+            </div>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <ToDoList task={task} setTask={setTask} handleSubmit={handleSubmit} />
+      </div>
+    </>
   );
 }

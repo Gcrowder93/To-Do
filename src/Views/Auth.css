@@ -1,16 +1,19 @@
-/* .links {
+.Link {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
-} */
-
-h1 {
-  margin: 10px;
-  cursor: pointer;
 }
 
-h1.active {
-  color: purple;
-  text-decoration: underline;
-  border-bottom: 2px solid black;
+.Link h1 {
+  cursor: pointer;
+  color: black;
+  margin: 10px;
+}
+
+.Link h1.active {
+  border: 2px solid purple;
+  width: 120px;
+  color: blue;
+  border-radius: 8px;
 }

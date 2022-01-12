@@ -24,8 +24,8 @@ export default function Auth({ setCurrentUser }) {
     }
   };
   return (
-    <div>
-      <div classnames="section">
+    <div className="Link">
+      <div classnames="Link">
         <h1
           onClick={() => {
             setType('Sign In');
