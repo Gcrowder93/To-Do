@@ -27,6 +27,8 @@ export default function ToDoAdmin() {
     window.location.reload();
   };
 
+  const deleteTask = ({ todo }) => currentTasks.remove(todo.id);
+
   const handleClick = async (todo) => {
     await toggleCompleted(todo.id, !todo.is_complete);
     setCurrentTask((prevState) =>
@@ -43,13 +45,18 @@ export default function ToDoAdmin() {
         <ul>
           {currentTasks.map((todo) => (
             <div key={todo.id}>
-              <Tasks todo={todo} handleClick={handleClick} />
+              <Tasks todo={todo} handleClick={handleClick} onDeleteClick={deleteTask} />
             </div>
           ))}
         </ul>
       </div>
       <div>
-        <ToDoList task={task} setTask={setTask} handleSubmit={handleSubmit} />
+        <ToDoList
+          task={task}
+          setTask={setTask}
+          handleSubmit={handleSubmit}
+          onDeleteClick={deleteTask}
+        />
       </div>
     </>
   );
