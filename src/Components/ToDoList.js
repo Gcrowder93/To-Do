@@ -20,6 +20,9 @@ export default function ToDoList({ task, setTask, handleSubmit }) {
           <button className="save-task" onClick={handleSubmit}>
             Save
           </button>
+          <br></br>
+          <br></br>
+          <button className="delete-task">Delete</button>
         </div>
       </form>
     </div>
