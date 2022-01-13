@@ -31,11 +31,8 @@ export default function ToDoAdmin() {
 
   const handleClick = async (todo) => {
     await toggleCompleted(todo.id, !todo.is_complete);
-    setCurrentTask((prevState) =>
-      prevState.map((todo) =>
-        todo.id === todo.id ? { ...todo, is_complete: !todo.is_complete } : todo
-      )
-    );
+    const fetchData = await fetchToDos();
+    setCurrentTask(fetchData);
   };
 
   return (
@@ -44,7 +41,7 @@ export default function ToDoAdmin() {
         <h1>Check A Box Once You Complete A Task!</h1>
         <ul>
           {currentTasks.map((todo) => (
-            <div key={todo.id}>
+            <div key={todo}>
               <Tasks todo={todo} handleClick={handleClick} onDeleteClick={deleteTask} />
             </div>
           ))}
