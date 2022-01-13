@@ -17,3 +17,7 @@
   color: blue;
   border-radius: 8px;
 }
+
+.deletebutton {
+  height: 50px;
+}
