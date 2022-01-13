@@ -23,7 +23,7 @@ export default function ToDoList({ task, setTask, handleSubmit, handleDelete }) 
             Save
           </button>
           <br></br>
-          <br></br>
+          {/* <br></br> */}
           {/* <button className="delete" onClick={handleDelete}>
             Delete
           </button> */}
