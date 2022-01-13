@@ -3,7 +3,6 @@ import React from 'react';
 export default function Tasks({ todo, handleClick, handleDelete }) {
   return (
     <div>
-      {/* <p>{task}</p> */}
       <br></br>
       {todo.task}
       <br></br>

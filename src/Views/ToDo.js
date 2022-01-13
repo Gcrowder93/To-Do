@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import Tasks from '../Components/Tasks';
 import { useEffect } from 'react';
 import { fetchToDos } from '../services/todos';
 
@@ -14,13 +13,5 @@ export default function ToDo() {
     fetchData();
   }, []);
 
-  return (
-    <div>
-      {/* {task.map((task) => (
-        <div key={task.id}>
-          <Tasks {...task} />
-        </div>
-      ))} */}
-    </div>
-  );
+  return <div></div>;
 }

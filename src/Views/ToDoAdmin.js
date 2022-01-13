@@ -34,7 +34,6 @@ export default function ToDoAdmin() {
 
     if (shouldDelete) {
       const resp = await deleteTaskById(id);
-      // const resp = await fetchToDos();
       setTask(resp);
     }
     window.location.reload();
@@ -56,10 +55,6 @@ export default function ToDoAdmin() {
             <div key={todo}>
               <Tasks todo={todo} handleClick={handleClick} handleDelete={handleDelete} />
               <br></br>
-              {/* <button className="deletebutton">
-                Delete
-                <Tasks todo={todo} handleClick={handleDelete} />
-              </button> */}
               <br></br>
             </div>
           ))}

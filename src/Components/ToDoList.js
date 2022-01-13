@@ -1,7 +1,7 @@
 import React from 'react';
 import { deleteTaskById } from '../services/todos';
 import './ToDoList.css';
-export default function ToDoList({ task, setTask, handleSubmit, handleDelete }) {
+export default function ToDoList({ task, setTask, handleSubmit }) {
   return (
     <div className="todo-list">
       <form className="form">
@@ -23,10 +23,6 @@ export default function ToDoList({ task, setTask, handleSubmit, handleDelete }) 
             Save
           </button>
           <br></br>
-          {/* <br></br> */}
-          {/* <button className="delete" onClick={handleDelete}>
-            Delete
-          </button> */}
         </div>
       </form>
     </div>
