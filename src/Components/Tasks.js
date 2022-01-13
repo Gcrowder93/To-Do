@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Tasks({ todo, handleClick }) {
+export default function Tasks({ todo, handleClick, handleDelete }) {
   return (
     <div>
       {/* <p>{task}</p> */}
@@ -11,8 +11,10 @@ export default function Tasks({ todo, handleClick }) {
         type="checkbox"
         value={todo}
         checked={todo.is_complete}
-        onChange={() => handleClick(todo)}
+        onClick={() => handleClick(todo)}
       />
+      <br></br>
+      <button onClick={() => handleDelete(todo)}>Delete</button>
     </div>
   );
 }

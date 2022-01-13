@@ -1,6 +1,7 @@
 import React from 'react';
+import { deleteTaskById } from '../services/todos';
 import './ToDoList.css';
-export default function ToDoList({ task, setTask, handleSubmit, onDeleteClick }) {
+export default function ToDoList({ task, setTask, handleSubmit, handleDelete }) {
   return (
     <div className="todo-list">
       <form className="form">
@@ -14,6 +15,7 @@ export default function ToDoList({ task, setTask, handleSubmit, onDeleteClick })
             onChange={(e) => {
               setTask(e.target.value);
             }}
+            onClick={deleteTaskById}
           />
         </div>
         <div className="action">
@@ -22,9 +24,9 @@ export default function ToDoList({ task, setTask, handleSubmit, onDeleteClick })
           </button>
           <br></br>
           <br></br>
-          <button className="delete" onClick={() => onDeleteClick(task)}>
+          {/* <button className="delete" onClick={handleDelete}>
             Delete
-          </button>
+          </button> */}
         </div>
       </form>
     </div>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Tasks from '../Components/Tasks';
 import ToDoList from '../Components/ToDoList';
 import { createToDo, fetchToDos, toggleCompleted } from '../services/todos';
+import { deleteTaskById } from '../services/todos';
+import './Auth.css';
 
 export default function ToDoAdmin() {
   const [task, setTask] = useState('');
@@ -27,12 +29,22 @@ export default function ToDoAdmin() {
     window.location.reload();
   };
 
-  const deleteTask = ({ todo }) => currentTasks.remove(todo.id);
+  const handleDelete = async ({ id }) => {
+    const shouldDelete = confirm('Do you want to delete this task?');
+
+    if (shouldDelete) {
+      const resp = await deleteTaskById(id);
+      // const resp = await fetchToDos();
+      setTask(resp);
+    }
+    window.location.reload();
+  };
 
   const handleClick = async (todo) => {
     await toggleCompleted(todo.id, !todo.is_complete);
     const fetchData = await fetchToDos();
     setCurrentTask(fetchData);
+    window.location.reload();
   };
 
   return (
@@ -42,18 +54,19 @@ export default function ToDoAdmin() {
         <ul>
           {currentTasks.map((todo) => (
             <div key={todo}>
-              <Tasks todo={todo} handleClick={handleClick} onDeleteClick={deleteTask} />
+              <Tasks todo={todo} handleClick={handleClick} handleDelete={handleDelete} />
+              <br></br>
+              {/* <button className="deletebutton">
+                Delete
+                <Tasks todo={todo} handleClick={handleDelete} />
+              </button> */}
+              <br></br>
             </div>
           ))}
         </ul>
       </div>
       <div>
-        <ToDoList
-          task={task}
-          setTask={setTask}
-          handleSubmit={handleSubmit}
-          onDeleteClick={deleteTask}
-        />
+        <ToDoList task={task} setTask={setTask} handleSubmit={handleSubmit} />
       </div>
     </>
   );
