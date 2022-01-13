@@ -8,10 +8,10 @@ export default function Tasks({ todo, handleClick }) {
       {todo.task}
       <br></br>
       <input
-        checked={todo.is_complete}
         type="checkbox"
-        onChange={() => handleClick(todo)}
         value={todo}
+        checked={todo.is_complete}
+        onChange={() => handleClick(todo)}
       />
     </div>
   );
